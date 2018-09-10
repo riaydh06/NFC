@@ -1,5 +1,5 @@
 <?xml version='1.0' encoding='utf-8'?>
-<widget id="com.example.helloworld" version="1.0.0" xmlns="http://www.w3.org/ns/widgets">
+<widget id="com.connectapps.app" version="1.0.0" xmlns="http://www.w3.org/ns/widgets">
     <name>Connect</name>
     <description />
     <author />
@@ -99,8 +99,6 @@
     <platform name="chrome">
         <icon height="128" src="/platforms/chrome/icon.png" width="128" />
     </platform>
-    <engine name="android" spec="~7.0.0" />
-    <engine name="ios" spec="~4.5.5" />
     <plugin name="phonegap-plugin-barcodescanner" spec="^8.0.0">
         <variable name="ANDROID_SUPPORT_V4_VERSION" value="27.+" />
     </plugin>
@@ -110,4 +108,9 @@
         <variable name="PHOTOLIBRARY_ADD_USAGE_DESCRIPTION" value="This app needs write-access to photo library" />
         <variable name="PHOTOLIBRARY_USAGE_DESCRIPTION" value="This app needs read/write-access photo library access" />
     </plugin>
+    <plugin name="phonegap-nfc" spec="^1.0.3">
+        <variable name="NFC_USAGE_DESCRIPTION" value="Read NFC Tags" />
+    </plugin>
+    <engine name="android" spec="^7.0.0" />
+    <engine name="ios" spec="^4.5.5" />
 </widget>

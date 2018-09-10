@@ -22,6 +22,9 @@
     },
     "cordova-plugin-ios-camera-permissions": {
       "PACKAGE_NAME": "com.example.helloworld"
+    },
+    "phonegap-nfc": {
+      "PACKAGE_NAME": "com.connect.app"
     }
   },
   "dependent_plugins": {}

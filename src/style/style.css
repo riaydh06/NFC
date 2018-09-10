@@ -1,0 +1,38 @@
+
+.payment-details-page{
+    width:100vw;
+    height:100vh;
+}
+.payment-details{
+
+}
+.payment-details-scandata-header{
+    color: #FF0062;
+    text-align: center;
+}
+.payment-details-scandata-data{
+    text-align: center;
+}
+.payment-details-scandata{
+    width: 100vw;
+    text-align: center;
+    padding: 10px;
+    font-size: 1.1em;
+    
+}
+.payment-details-page-close{
+        width: 94vw;
+    text-align: right;
+    padding: 20px 0 20px 0;
+}
+.payment-details-page-button{
+    /*width: 68%;*/
+    text-align: center;
+    /*padding-top: 70vh;*/
+}
+.payment-details-page-button img{
+    width: 68%;
+    /*text-align: center;*/
+    padding-top: 50vh;
+}
+

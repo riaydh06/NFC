@@ -25,6 +25,10 @@
       "PHOTOLIBRARY_ADD_USAGE_DESCRIPTION": "This app needs write-access to photo library",
       "PHOTOLIBRARY_USAGE_DESCRIPTION": "This app needs read/write-access photo library access",
       "PACKAGE_NAME": "com.example.helloworld"
+    },
+    "phonegap-nfc": {
+      "NFC_USAGE_DESCRIPTION": "Read NFC Tags",
+      "PACKAGE_NAME": "com.example.helloworld"
     }
   },
   "dependent_plugins": {}
