@@ -12,8 +12,8 @@
               <div v-if="this.qrcode">
                 {{this.qrcode.text}}
               </div>
-              <div>
-                <h3>Scan data</h3>
+              <div else>
+                <!-- <h3>Scan data</h3> -->
               </div>
             </div>
         </div>

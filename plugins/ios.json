@@ -29,6 +29,9 @@
     "phonegap-nfc": {
       "NFC_USAGE_DESCRIPTION": "Read NFC Tags",
       "PACKAGE_NAME": "com.example.helloworld"
+    },
+    "cordova-plugin-device": {
+      "PACKAGE_NAME": "com.connectapps.app"
     }
   },
   "dependent_plugins": {}

@@ -13,8 +13,8 @@
                 <div v-if="this.nfc">
                   {{this.nfc}}
                 </div>
-                <div>
-                  <h3>Scan data</h3>
+                <div else>
+                  <!-- <h3>Scan data</h3> -->
                 </div>
               </div>
             <!-- <paymentinfo></paymentinfo> -->

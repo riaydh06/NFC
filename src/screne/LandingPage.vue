@@ -27,8 +27,18 @@
   export default {
      data(){
         return {
-          modalVisible:false
+          modalVisible:false,
+          platform:''
         }
+     },
+     mounted:function (){
+      var that =  this
+      document.addEventListener("deviceready", onDeviceReady, false);
+
+            function onDeviceReady() {
+              that.platform = device.platform;
+              // alert(that.platform)
+            }
      },
      methods: {
         pop(){
@@ -63,7 +73,7 @@
               }
            },
               function (error) {
-                 alert("Scanning failed: " + error);
+                 that.$ons.notification.alert("Scanning failed: " + error);
               },
               {
                  prompt : "" // Android
@@ -74,35 +84,53 @@
           var that = this;
           that.modalVisible = false;
           //that.pageStack.push(Nfc)
-          nfc.addNdefListener (
-            function (nfcEvent) {
-                var tag = nfcEvent.tag,
-                    ndefMessage = tag.ndefMessage;
-
-                // dump the raw json of the message
-                // note: real code will need to decode
-                // the payload from each record
-                // alert(JSON.stringify(ndefMessage));
-
-                // assuming the first record in the message has
-                // a payload that can be converted to a string.
-                // alert(nfc.bytesToString(ndefMessage[0].payload).substring(3));
-                that.pageStack.push({
-                  extends:Nfc,
-                  data(){
-                    return {
-                      nfc:nfc.bytesToString(ndefMessage[0].payload).substring(3)
-                    }
-                  }
-                })
-            },
-            function () { // success callback
-                alert("Waiting for NDEF tag");
-            },
-            function (error) { // error callback
-                alert("Error adding NDEF listener " + JSON.stringify(error));
-            }
-          );
+          if(that.platform=='iOS'){
+            nfc.beginSession(function(){
+              nfc.addNdefListener (
+              function (nfcEvent) {
+                  var tag = nfcEvent.tag,
+                      ndefMessage = tag.ndefMessage;
+                      that.pageStack.push({
+                        extends:Nfc,
+                        data(){
+                          return {
+                            nfc:nfc.bytesToString(ndefMessage[0].payload).substring(3)
+                          }
+                        }
+                      })
+              },
+              function () { // success callback
+                  // that.$ons.notification.alert("Waiting for NDEF tag");
+              },
+              function (error) { // error callback
+                  that.$ons.notification.alert("Error adding NDEF listener " + JSON.stringify(error));
+              }
+            );
+            },function(){
+              alert('error');
+            });
+          }else{
+            nfc.addNdefListener (
+              function (nfcEvent) {
+                  var tag = nfcEvent.tag,
+                      ndefMessage = tag.ndefMessage;
+                      that.pageStack.push({
+                        extends:Nfc,
+                        data(){
+                          return {
+                            nfc:nfc.bytesToString(ndefMessage[0].payload).substring(3)
+                          }
+                        }
+                      })
+              },
+              function () { // success callback
+                  that.$ons.notification.alert("Waiting for NDEF tag");
+              },
+              function (error) { // error callback
+                  that.$ons.notification.alert("Error adding NDEF listener " + JSON.stringify(error));
+              }
+            );
+          }
         }
      },
      props: ['pageStack'],

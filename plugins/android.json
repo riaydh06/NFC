@@ -25,6 +25,9 @@
     },
     "phonegap-nfc": {
       "PACKAGE_NAME": "com.connect.app"
+    },
+    "cordova-plugin-device": {
+      "PACKAGE_NAME": "com.connectapps.app"
     }
   },
   "dependent_plugins": {}
