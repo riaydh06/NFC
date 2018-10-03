@@ -6,26 +6,27 @@
             <img :src="this.assets.icon.close_button">
           </div>
           <div class="payment-details-scandata-header">
-              <h2>QRCODE SCAN DATA</h2>
+              <h2>Please fill up the payment instructions</h2>
+          </div>
+          <div class="payment-details-scandata-data">
+               <!--  <div v-if="this.qrcode">
+                  {{this.qrcode.text}}
+                </div> -->
+            <div>
+              <paymentScreen :sacndata="this.qrcode.text" :pageStack="pageStack"></paymentScreen>
             </div>
-            <div class="payment-details-scandata-data">
-              <div v-if="this.qrcode">
-                {{this.qrcode.text}}
-              </div>
-              <div else>
-                <!-- <h3>Scan data</h3> -->
-              </div>
-            </div>
+          </div>
         </div>
         <!-- <paymentinfo></paymentinfo> -->
-        <div @click="payment" class="payment-details-page-button">
+        <!-- <div @click="payment" class="payment-details-page-button">
             <img :src="this.assets.icon.pay_button" alt="">
-        </div>
+        </div> -->
       </div>
     </v-ons-page>
 </template>
 <script>
 import paymentinfo from '../component/payment-info'
+import paymentScreen from '../component/PaymentScreen'
 import payment from '../Payment'
     export default{
       data(){
@@ -34,7 +35,7 @@ import payment from '../Payment'
         }
       },
       props:['pageStack'],
-      components:{paymentinfo},
+      components:{paymentinfo,paymentScreen},
       mounted(){
         
       },

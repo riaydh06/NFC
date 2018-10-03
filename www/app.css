@@ -8099,6 +8099,7 @@ limitations under the License.
 .payment-details-scandata-header{
     color: #FF0062;
     text-align: center;
+    width: 94vw;
 }
 .payment-details-scandata-data{
     text-align: center;
@@ -8106,14 +8107,14 @@ limitations under the License.
 .payment-details-scandata{
     width: 100vw;
     text-align: center;
-    padding: 10px;
+    /*padding: 10px;*/
     font-size: 1.1em;
     
 }
 .payment-details-page-close{
-        width: 94vw;
+    width: 94vw;
     text-align: right;
-    padding: 20px 0 20px 0;
+    padding: 20px 0 0px 0;
 }
 .payment-details-page-button{
     /*width: 68%;*/

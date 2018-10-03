@@ -8,30 +8,30 @@
   },
   "installed_plugins": {
     "cordova-custom-config": {
-      "PACKAGE_NAME": "com.example.helloworld"
+      "PACKAGE_NAME": "com.connectappbd.app"
     },
-    "cordova-plugin-splashscreen": {
-      "PACKAGE_NAME": "com.example.helloworld"
-    },
-    "cordova-plugin-whitelist": {
-      "PACKAGE_NAME": "com.example.helloworld"
-    },
-    "phonegap-plugin-barcodescanner": {
-      "PACKAGE_NAME": "com.example.helloworld"
+    "cordova-plugin-device": {
+      "PACKAGE_NAME": "com.connectappbd.app"
     },
     "cordova-plugin-ios-camera-permissions": {
       "CAMERA_USAGE_DESCRIPTION": "This app needs camera access",
       "MICROPHONE_USAGE_DESCRIPTION": "This app needs microphone access",
       "PHOTOLIBRARY_ADD_USAGE_DESCRIPTION": "This app needs write-access to photo library",
       "PHOTOLIBRARY_USAGE_DESCRIPTION": "This app needs read/write-access photo library access",
-      "PACKAGE_NAME": "com.example.helloworld"
+      "PACKAGE_NAME": "com.connectappbd.app"
+    },
+    "cordova-plugin-splashscreen": {
+      "PACKAGE_NAME": "com.connectappbd.app"
+    },
+    "cordova-plugin-whitelist": {
+      "PACKAGE_NAME": "com.connectappbd.app"
     },
     "phonegap-nfc": {
       "NFC_USAGE_DESCRIPTION": "Read NFC Tags",
-      "PACKAGE_NAME": "com.example.helloworld"
+      "PACKAGE_NAME": "com.connectappbd.app"
     },
-    "cordova-plugin-device": {
-      "PACKAGE_NAME": "com.connectapps.app"
+    "phonegap-plugin-barcodescanner": {
+      "PACKAGE_NAME": "com.connectappbd.app"
     }
   },
   "dependent_plugins": {}

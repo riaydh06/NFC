@@ -28,7 +28,8 @@
      data(){
         return {
           modalVisible:false,
-          platform:''
+          platform:'',
+          listenerAdded: false
         }
      },
      mounted:function (){
@@ -86,31 +87,36 @@
           //that.pageStack.push(Nfc)
           if(that.platform=='iOS'){
             nfc.beginSession(function(){
-              nfc.addNdefListener (
-              function (nfcEvent) {
-                  var tag = nfcEvent.tag,
-                      ndefMessage = tag.ndefMessage;
-                      that.pageStack.push({
-                        extends:Nfc,
-                        data(){
-                          return {
-                            nfc:nfc.bytesToString(ndefMessage[0].payload).substring(3)
-                          }
-                        }
-                      })
-              },
-              function () { // success callback
-                  // that.$ons.notification.alert("Waiting for NDEF tag");
-              },
-              function (error) { // error callback
-                  that.$ons.notification.alert("Error adding NDEF listener " + JSON.stringify(error));
+              if(!that.listenerAdded){
+                  that.listenerAdded = true;
+                  nfc.addNdefListener (
+                  function (nfcEvent) {
+                      var tag = nfcEvent.tag,
+                          ndefMessage = tag.ndefMessage;
+                          that.pageStack.push({
+                            extends:Nfc,
+                            data(){
+                              return {
+                                nfc:nfc.bytesToString(ndefMessage[0].payload).substring(3)
+                              }
+                            }
+                          })
+                  },
+                  function () { // success callback
+                      // that.$ons.notification.alert("Waiting for NDEF tag");
+                  },
+                  function (error) { // error callback
+                      that.$ons.notification.alert("Error adding NDEF listener " + JSON.stringify(error));
+                  }
+                );
               }
-            );
+              
             },function(){
               alert('error');
             });
           }else{
-            nfc.addNdefListener (
+            nfc.enabled(function(){
+              nfc.addNdefListener (
               function (nfcEvent) {
                   var tag = nfcEvent.tag,
                       ndefMessage = tag.ndefMessage;
@@ -130,6 +136,10 @@
                   that.$ons.notification.alert("Error adding NDEF listener " + JSON.stringify(error));
               }
             );
+            },function(){
+              alert('error');
+            })
+            
           }
         }
      },
